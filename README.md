@@ -1,3 +1,30 @@
+### 📘 Terminology & Abbreviations
+
+| Symbol / Term               | Meaning                                                   |
+| --------------------------- | --------------------------------------------------------- |
+| ✅ Use / ❌ Don’t use         | When a test is appropriate or inappropriate               |
+| `pop.`                      | Population                                                |
+| **SD**                      | Standard Deviation: measure of spread in data             |
+| \$\mu\$, \$\mu\_0\$         | Population mean / hypothesized population mean            |
+| \$\bar{x}\$                 | Sample mean                                               |
+| \$s\$, \$s\_d\$             | Sample SD / SD of paired differences                      |
+| \$n\$, \$n\_i\$             | Sample size / size of group \$i\$                         |
+| \$\sigma\$, \$\sigma\_i\$   | Population standard deviation (must be known for Z-tests) |
+| \$\hat{p}\$, \$\hat{p}\_i\$ | Sample proportion (e.g., 0.65 from 65%)                   |
+| \$p\_0\$                    | Hypothesized population proportion                        |
+| \$x\_i\$, \$y\_i\$          | Individual paired observations                            |
+| \$r\$                       | Pearson correlation coefficient                           |
+| \$F\$                       | F-statistic: ratio of variances in ANOVA                  |
+| \$SS\$, \$MS\$              | Sum of Squares / Mean Square (for ANOVA calculations)     |
+| \$\chi^2\$                  | Chi-square statistic                                      |
+| \$O\_i\$, \$E\_i\$          | Observed / Expected frequencies in contingency tables     |
+| \$R\_i\$                    | Sum of ranks in group \$i\$                               |
+| \$U\$                       | Mann-Whitney U statistic                                  |
+| \$H\$                       | Kruskal-Wallis H statistic                                |
+| \$\bar{d}\$                 | Mean of the paired differences                            |
+
+---
+
 | Test Name                              | Type           | When to Use / Not Use                                                                 | Formula                                                                                                                            | Variables                                                                                                  | Example                                                                                                                         | Data Type             | Required Data                                |
 |----------------------------------------|----------------|---------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|-----------------------|-----------------------------------------------|
 | One-sample t-test                      | Parametric     | ✅ Use: sample mean vs known pop. mean<br>❌ Don’t use: non-normal small n               | $t = \frac{\bar x - \mu_0}{s / \sqrt{n}}$                                                                                            | $\bar x$: sample mean<br>$\mu_0$: pop. mean<br>$s$: sample SD<br>$n$: sample size                           | “Is the average score of 30 students (mean = 75, s = 10) different from the passing mark of 70?”                              | Continuous            | one sample of raw values, known $\mu_0$       |
