@@ -18,6 +18,10 @@ Use it as a cheat sheet while analyzing or reviewing results.
 | pop.                        | Population                                                                                    |
 | gof                         | Goodness-of-Fit                                                                               |
 | SD                          | Standard Deviation: measure of spread in data                                                 |
+| df                          | Degrees of freedom: number of independent values that vary; formulas differ by test           |
+| CV (Critical Value)         | Cutoff value from the test distribution for given \$\alpha\$, df, and alternative type        |
+| One-sided test              | Hypothesis test that checks for a deviation in one direction only (greater than or less than) |
+| Two-sided test              | Hypothesis test that checks for any difference (either greater or less than)                  |
 | \$\mu\$, \$\mu\_0\$         | Population mean / hypothesized population mean                                                |
 | \$\bar{x}\$                 | Sample mean                                                                                   |
 | \$s\$, \$s\_d\$             | Sample standard deviation / standard deviation of paired differences                          |
@@ -26,8 +30,6 @@ Use it as a cheat sheet while analyzing or reviewing results.
 | \$\hat{p}\$, \$\hat{p}\_i\$ | Sample proportion                                                                             |
 | \$p\_0\$                    | Hypothesized population proportion                                                            |
 | \$\alpha\$                  | Significance level (e.g., \$0.05\$)                                                          |
-| **CV** (Critical Value)     | Cutoff value from the test distribution for given \$\alpha\$, df, and alternative type        |
-| df                          | Degrees of freedom: number of independent values that vary; formulas differ by test           |
 | \$x\_i\$, \$y\_i\$          | Individual paired observations                                                                |
 | \$r\$                       | Pearson correlation coefficient                                                               |
 | \$F\$                       | F-statistic: ratio of variances in ANOVA                                                      |
@@ -38,8 +40,6 @@ Use it as a cheat sheet while analyzing or reviewing results.
 | \$U\$                       | Mann-Whitney U statistic                                                                      |
 | \$H\$                       | Kruskal-Wallis H statistic                                                                    |
 | \$\bar{d}\$                 | Mean of the paired differences                                                                |
-| One-sided test              | Hypothesis test that checks for a deviation in one direction only (greater than or less than) |
-| Two-sided test              | Hypothesis test that checks for any difference (either greater or less than)                  |
 
 > **Note on Critical Values and Degrees of Freedom**:
 >
@@ -48,7 +48,7 @@ Use it as a cheat sheet while analyzing or reviewing results.
 
 > ### 🧐 Tail Selection & p‑Value Interpretation
 >
-> * **Two-sided Tests**: Detect **any** difference; alternative "\$\neq\$."
+> * **Two-sided Tests**: Detect **any** difference; alternative $\\neq\$.
 > * **One-sided Tests**: Detect **directional** change; alternative ">" or "<".
 > * **p‑value vs \$\alpha\$**:
 >
