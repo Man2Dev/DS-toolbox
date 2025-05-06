@@ -14,9 +14,10 @@ Use it as a cheat sheet while analyzing or reviewing results.
 
 | Symbol / Term               | Meaning                                                                                       |
 | --------------------------- | --------------------------------------------------------------------------------------------- |
-| ✅ Use / ❌ Don’t use         | When a test is appropriate or inappropriate                                                   |
+| ✅ Use / ❌ Don’t use       | When a test is appropriate or inappropriate                                                   |
 | pop.                        | Population                                                                                    |
-| **SD**                      | Standard Deviation: measure of spread in data                                                 |
+| gof                         | Goodness-of-Fit                                                                               |
+| SD                          | Standard Deviation: measure of spread in data                                                 |
 | \$\mu\$, \$\mu\_0\$         | Population mean / hypothesized population mean                                                |
 | \$\bar{x}\$                 | Sample mean                                                                                   |
 | \$s\$, \$s\_d\$             | Sample standard deviation / standard deviation of paired differences                          |
