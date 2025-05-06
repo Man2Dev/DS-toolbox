@@ -1,27 +1,33 @@
-# 🧪 Hypothesis Test Reference Table
+# 📊 Hypothesis Testing Cheat Sheet
 
-## 🧭 Quick Guide to Hypothesis Tests
+This guide helps you choose the right statistical test, set up hypotheses, and interpret results. Whether you're comparing means, proportions, or checking associations, this cheat sheet has you covered!
 
-Need to pick the right statistical test? This reference helps you:
+## 🎯 How to Use This Guide
+1. **Identify your data**: Are you working with means, proportions, or categories?
+2. **Check assumptions**: Ensure your data meets the test’s requirements (e.g., normality, sample size).
+3. **Pick a test**: Use the table to find the test that matches your needs.
+4. **Interpret results**: Use the decision rules to decide if your results are significant.
 
-* 🧭 **Find the right test** for means, proportions, correlations, or categories
-* ✔️ **Check assumptions** (normality, independence, sample size)
-* 🎯 **Set hypotheses**, choose one- or two-sided, and interpret p-values
+## 📚 Key Terms
+| Term | Meaning |
+|------|---------|
+| **✅ Use / ❌ Don’t use** | When a test is appropriate or inappropriate. |
+| **H₀ (Null Hypothesis)** | The default assumption (e.g., "no difference" or "no effect"). |
+| **Hₐ (Alternative Hypothesis)** | What you're testing for (e.g., "there is a difference"). |
+| **p-value** | Probability of observing your data if H₀ is true. Smaller p-values suggest stronger evidence against H₀. |
+| **α (Significance Level)** | Threshold for significance (usually 0.05). If p < α, reject H₀. |
+| **Critical Value (CV)** | Cutoff for test statistic to reject H₀ (depends on α and test). |
+| **One-sided Test** | Tests for a difference in one direction (e.g., "greater than"). |
+| **Two-sided Test** | Tests for any difference (e.g., "not equal"). |
+| **df** | Degrees of freedom, used to find critical values. |
+| **SD** | Standard deviation, measures data spread. |
+| **CV (Critical Value)** | Cutoff value from the test distribution for given $\alpha$, df, and alternative type. |
+| **pop.** | Population|
+| **gof** | Goodness-of-Fit |
 
-Use it as a cheat sheet while analyzing or reviewing results.
-
-## 📘 Terminology & Abbreviations
-
-| Symbol / Term               | Meaning                                                                                       |
+## 📚 Key Symbols
+| Symbol               | Meaning                                                                                       |
 | --------------------------- | --------------------------------------------------------------------------------------------- |
-| ✅ Use / ❌ Don’t use       | When a test is appropriate or inappropriate                                                   |
-| pop.                        | Population                                                                                    |
-| gof                         | Goodness-of-Fit                                                                               |
-| SD                          | Standard Deviation: measure of spread in data                                                 |
-| df                          | Degrees of freedom: number of independent values that vary; formulas differ by test           |
-| CV (Critical Value)         | Cutoff value from the test distribution for given $\alpha$, df, and alternative type          |
-| One-sided test              | Hypothesis test that checks for a deviation in one direction only (greater than or less than) |
-| Two-sided test              | Hypothesis test that checks for any difference (either greater or less than)                  |
 | $\mu$, $\mu_0$              | Population mean / hypothesized population mean                                                |
 | $\bar{x}$                   | Sample mean                                                                                   |
 | $s$, $s_d$                  | Sample standard deviation / standard deviation of paired differences                          |
@@ -59,6 +65,15 @@ Use it as a cheat sheet while analyzing or reviewing results.
 >   * Two-sided: $|\text{stat}| > \text{CV}$.
 >   * One-sided: stat > CV (right) or stat < −CV (left).
 
+## 🧠 Tips for Interpretation
+- For parametric tests (e.g., t-tests, Z-tests), compare the test statistic to a critical value (e.g., $t_{\alpha/2, df}$, $Z_{\alpha/2}$) or use the p-value against $\alpha$.
+- For non-parametric tests (e.g., Chi-square, Mann-Whitney U), decision rules use critical values from respective distributions or p-values.
+- **The p-value approach is consistent**: reject $H_0$ if p < $\alpha$; otherwise, fail to reject $H_0$.
+- **Critical Values**: If the test statistic exceeds the critical value (or falls in the rejection region), reject H₀. Critical values depend on α, df, and the test distribution.
+
+## 📋 Hypothesis Tests Table
+Each test includes when to use it, the formula, key variables, example, hypotheses, tail options, and how to decide whether to reject H₀.
+
 ## Statistical Tests Table ($\alpha = 0.05$)
 
 | Test Name                 | Type           | When to Use / Not Use                                                  | Formula                                                                                                                             | Variables                    | df Formula                          | Example                                       | Hypotheses                                                            | Tail Options   | Decision Rule                                                                                       |
@@ -77,9 +92,3 @@ Use it as a cheat sheet while analyzing or reviewing results.
 | Mann-Whitney U test       | Non-Parametric | ✅ two independent groups, non-normal<br>❌ parametric conditions        | $U = n_1 n_2 + \dfrac{n_1 (n_1 + 1)}{2} - R_1$                                                                                      | $n_i,R_1$                    | not applicable                      | Stress Day vs Night                           | $H_0:$ distributions equal<br>$H_a:$ differ                           | Two-/One-sided | Reject $H_0$ if $U < U_{crit}$ (two-tailed) or $U < U_{crit}$ (one-tailed) or p < $\alpha$          |
 | Wilcoxon signed-rank test | Non-Parametric | ✅ paired non-normal<br>❌ parametric conditions                         | $W = \min(W^+,W^-), W^+=\sum_{d_i>0}R_i, W^-=\sum_{d_i<0}R_i$                                                                       | $d_i,R_i,W^+,W^-$            | $n-1$                               | Mood 1–10 before/after therapy                | $H_0:$ median diff=0<br>$H_a:$ median diff $\neq$ 0                   | Two-/One-sided | Reject $H_0$ if $W < W_{crit}$ (two-tailed) or $W < W_{crit}$ (one-tailed) or p < $\alpha$          |
 | Kruskal-Wallis test       | Non-Parametric | ✅ 3+ groups non-normal<br>❌ ANOVA conditions                           | $H = \dfrac{12}{N(N+1)} \sum_i \dfrac{R_i^2}{n_i} - 3(N+1)$                                                                         | $R_i,n_i,N$                  | $k-1$                               | Satisfaction N/S/E                            | $H_0:$ distributions equal<br>$H_a:$ at least one differs             | Two-sided only | Reject $H_0$ if $H > \chi^2_{\alpha, k-1}$ or p < $\alpha$                                          |
-
-## Notes on Decision Rules
-
-- For parametric tests (e.g., t-tests, Z-tests), compare the test statistic to a critical value (e.g., $t_{\alpha/2, df}$, $Z_{\alpha/2}$) or use the p-value against $\alpha$.
-- For non-parametric tests (e.g., Chi-square, Mann-Whitney U), decision rules use critical values from respective distributions or p-values.
-- The p-value approach is consistent: reject $H_0$ if p < $\alpha$; otherwise, fail to reject $H_0$.
