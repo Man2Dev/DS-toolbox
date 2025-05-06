@@ -25,7 +25,7 @@ Use it as a cheat sheet while analyzing or reviewing results.
 | \$\sigma\$, \$\sigma\_i\$   | Population standard deviation (known for Z-tests)                                             |
 | \$\hat{p}\$, \$\hat{p}\_i\$ | Sample proportion                                                                             |
 | \$p\_0\$                    | Hypothesized population proportion                                                            |
-| \$\alpha\$                  | Significance level (e.g., \$0.005\$)                                                          |
+| \$\alpha\$                  | Significance level (e.g., \$0.05\$)                                                          |
 | **CV** (Critical Value)     | Cutoff value from the test distribution for given \$\alpha\$, df, and alternative type        |
 | df                          | Degrees of freedom: number of independent values that vary; formulas differ by test           |
 | \$x\_i\$, \$y\_i\$          | Individual paired observations                                                                |
@@ -44,7 +44,7 @@ Use it as a cheat sheet while analyzing or reviewing results.
 > **Note on Critical Values and Degrees of Freedom**:
 >
 > * **df** varies by test; see formulas in the main table.
-> * Use \$\alpha/2 = 0.0025\$ for two-sided tests.
+> * Use \$\alpha/2 = 0.025\$ for two-sided tests.
 
 > ### 🧐 Tail Selection & p‑Value Interpretation
 >
@@ -59,7 +59,7 @@ Use it as a cheat sheet while analyzing or reviewing results.
 >   * Two-sided: \$|\text{stat}| > \text{CV}\$.
 >   * One-sided: stat > CV (right) or stat < −CV (left).
 
-## Statistical Tests Table (\$\alpha = 0.005\$)
+## Statistical Tests Table (\$\alpha = 0.05\$)
 
 | Test Name                 | Type           | When to Use / Not Use                                                  | Formula                                                                                                                             | Variables                    | df Formula                          | Example                                       | Hypotheses                                                            | Tail Options   |
 | ------------------------- | -------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ----------------------------------- | --------------------------------------------- | --------------------------------------------------------------------- | -------------- |
