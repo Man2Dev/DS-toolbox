@@ -1,51 +1,68 @@
-# Statistical Tests Reference
+## 🧪 Hypothesis Test Reference Table
 
-## Terminology & Abbreviations
+### 📘 Terminology & Abbreviations
 
-| Symbol / Term | Meaning |
-| --- | --- |
-| ✅ Use / ❌ Don’t use | When a test is appropriate or inappropriate |
-| pop. | Population |
-| **SD** | Standard Deviation: measure of spread in data |
-| $\mu$, $\mu_0$ | Population mean / hypothesized population mean |
-| $\bar{x}$ | Sample mean |
-| $s$, $s_d$ | Sample SD / SD of paired differences |
-| $n$, $n_i$ | Sample size / size of group $i$ |
-| $\sigma$, $\sigma_i$ | Population standard deviation (must be known for Z-tests) |
-| $\hat{p}$, $\hat{p}_i$ | Sample proportion (e.g., 0.65 from 65%) |
-| $p_0$ | Hypothesized population proportion |
-| $x_i$, $y_i$ | Individual paired observations |
-| $r$ | Pearson correlation coefficient |
-| $F$ | F-statistic: ratio of variances in ANOVA |
-| $SS$, $MS$ | Sum of Squares / Mean Square (for ANOVA calculations) |
-| $\chi^2$ | Chi-square statistic |
-| $O_i$, $E_i$ | Observed / Expected frequencies in contingency tables |
-| $R_i$ | Sum of ranks in group $i$ |
-| $U$ | Mann-Whitney U statistic |
-| $H$ | Kruskal-Wallis H statistic |
-| $\bar{d}$ | Mean of the paired differences |
+| Symbol / Term               | Meaning                                                                                                     |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| ✅ Use / ❌ Don’t use         | When a test is appropriate or inappropriate                                                                 |
+| pop.                        | Population                                                                                                  |
+| **SD**                      | Standard Deviation: measure of spread in data                                                               |
+| \$\mu\$, \$\mu\_0\$         | Population mean / hypothesized population mean                                                              |
+| \$\bar{x}\$                 | Sample mean                                                                                                 |
+| \$s\$, \$s\_d\$             | Sample standard deviation / standard deviation of paired differences                                        |
+| \$n\$, \$n\_i\$             | Sample size / size of group \$i\$                                                                           |
+| \$\sigma\$, \$\sigma\_i\$   | Population standard deviation (known for Z-tests)                                                           |
+| \$\hat{p}\$, \$\hat{p}\_i\$ | Sample proportion                                                                                           |
+| \$p\_0\$                    | Hypothesized population proportion                                                                          |
+| \$\alpha\$                  | Significance level (e.g., \$0.005\$)                                                                        |
+| **CV** (Critical Value)     | Cutoff value from the test distribution for given \$\alpha\$, degrees of freedom (df), and alternative type |
+| \$x\_i\$, \$y\_i\$          | Individual paired observations                                                                              |
+| \$r\$                       | Pearson correlation coefficient                                                                             |
+| \$F\$                       | F-statistic: ratio of variances in ANOVA                                                                    |
+| \$SS\$, \$MS\$              | Sum of Squares / Mean Square (for ANOVA calculations)                                                       |
+| \$\chi^2\$                  | Chi-square statistic                                                                                        |
+| \$O\_i\$, \$E\_i\$          | Observed / Expected frequencies in contingency tables                                                       |
+| \$R\_i\$                    | Sum of ranks in group \$i\$                                                                                 |
+| \$U\$                       | Mann-Whitney U statistic                                                                                    |
+| \$H\$                       | Kruskal-Wallis H statistic                                                                                  |
+| \$\bar{d}\$                 | Mean of the paired differences                                                                              |
+| **Two-sided test**          | Tests if a parameter differs from the null (could be larger or smaller). Alternative \$\neq\$.              |
+| **One-sided test**          | Tests if a parameter is only larger or only smaller. Alternative \$>\$ or \$<\$.                            |
+
+> **Note on Critical Value at \$\alpha = 0.005\$**:
+>
+> * For two-sided tests use \$\alpha/2 = 0.0025\$ in each tail.
+> * Critical values depend on distribution (t, Z, \$\chi^2\$, F) and df.
+> * Example: Z two-sided CV \$\approx \pm 2.807\$, Z one-sided CV \$\approx 2.576\$.
+>
+> ### 🧐 Tail Selection & p-Value Interpretation
+>
+> * **Two-sided**: Detect any difference; alternative hypothesis uses \$\neq\$.
+> * **One-sided**: Detect directional effect; alternative uses \$>\$ or \$<\$.
+> * **p-value vs. \$\alpha\$**:
+>
+>   * If \$p < \alpha\$: reject \$H\_0\$ (statistically significant).
+>   * If \$p \ge \alpha\$: fail to reject \$H\_0\$.
+> * **Test statistic vs. CV**:
+>
+>   * Two-sided: \$|\text{stat}| > \text{CV}\$.
+>   * One-sided: stat \$> \text{CV}\$ (right) or stat \$< -\text{CV}\$ (left).
 
 ## Statistical Tests Table
 
-| Test Name | Type | When to Use / Not Use | Formula | Variables | Example | Data Type | Required Data | Hypotheses | Conclusion if p < α |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| One-sample t-test | Parametric | ✅ Use: sample mean vs known pop. mean<br>❌ Don’t use: non-normal small n | $t = \frac{\bar x - \mu_0}{s / \sqrt{n}}$ | $\bar x$: sample mean<br>$\mu_0$: pop. mean<br>$s$: sample SD<br>$n$: sample size | “Is the average score of 30 students (mean = 75, s = 10) different from the passing mark of 70?” | Continuous | one sample of raw values, known $\mu_0$ | **H₀**: μ = μ₀<br>**H₁**: μ ≠ μ₀ (two-tailed), or μ > μ₀ (one-tailed), or μ < μ₀ (one-tailed) | μ ≠ μ₀ (two-tailed), μ > μ₀ (right-tailed), μ < μ₀ (left-tailed) |
-| Two-sample t-test | Parametric | ✅ Use: means of 2 independent groups<br>❌ Don’t use: non-normal or unequal variances | $t = \frac{\bar x_1 - \bar x_2}{\sqrt{s_1^2/n_1 + s_2^2/n_2}}$ | $\bar x_i$: group means<br>$s_i$: group SDs<br>$n_i$: group sizes | “Compare blood pressure: Group A (n = 25, mean = 120 mmHg, s = 8) vs Group B (n = 30, mean = 125 mmHg)” | Continuous | two independent samples of raw values | **H₀**: μ₁ = μ₂<br>**H₁**: μ₁ ≠ μ₂ (two-tailed), or μ₁ > μ₂ (one-tailed), or μ₁ < μ₂ (one-tailed) | μ₁ ≠ μ₂ (two-tailed), μ₁ > μ₂ (right-tailed), μ₁ < μ₂ (left-tailed) |
-| Paired t-test | Parametric | ✅ Use: same group before/after<br>❌ Don’t use: independent groups | $t = \frac{\bar d}{s_d / \sqrt{n}}$ | $\bar d$: mean of paired differences<br>$s_d$: SD of differences<br>$n$: number of pairs | “Did 20 patients lose weight? (mean change = −5 kg, SD = 2 kg across pairs)” | Continuous, paired | paired differences of raw values | **H₀**: μ_d = 0<br>**H₁**: μ_d ≠ 0 (two-tailed), or μ_d > 0 (one-tailed), or μ_d < 0 (one-tailed) | μ_d ≠ 0 (two-tailed), μ_d > 0 (right-tailed), μ_d < 0 (left-tailed) |
-| One-sample Z-test | Parametric | ✅ Use: large $n$, known $\sigma$<br>❌ Don’t use: small $n$ or unknown $\sigma$ | $Z = \frac{\bar x - \mu}{\sigma / \sqrt{n}}$ | $\bar x$: sample mean<br>$\mu$: pop. mean<br>$\sigma$: pop. SD<br>$n$: sample size | “Test if average widget weight (n = 100, mean = 50.2 kg, known σ = 0.5 kg) equals 50 kg” | Continuous | one sample of raw values, known $\sigma$ | **H₀**: μ = μ₀<br>**H₁**: μ ≠ μ₀ (two-tailed), or μ > μ₀ (one-tailed), or μ < μ₀ (one-tailed) | μ ≠ μ₀ (two-tailed), μ > μ₀ (right-tailed), μ < μ₀ (left-tailed) |
-| Two-sample Z-test | Parametric | ✅ Use: large $n$, compare 2 means, known $\sigma_1,\sigma_2$ | $Z = \frac{\bar x_1 - \bar x_2}{\sqrt{\sigma_1^2/n_1 + \sigma_2^2/n_2}}$ | $\bar x_i$: sample means<br>$\sigma_i$: pop. SDs<br>$n_i$: sample sizes | “Compare average yield: Farm A (n = 150, mean = 200 kg, σ = 15) vs Farm B (n = 180, mean = 190 kg, σ = 20)” | Continuous | two independent samples, known $\sigma$s | **H₀**: μ₁ = μ₂<br>**H₁**: μ₁ ≠ μ₂ (two-tailed), or μ₁ > μ₂ (one-tailed), or μ₁ < μ₂ (one-tailed) | μ₁ ≠ μ₂ (two-tailed), μ₁ > μ₂ (right-tailed), μ₁ < μ₂ (left-tailed) |
-| Z-test for proportions (1-sample) | Parametric | ✅ Use: sample $\hat p$ vs known $p_0$<br>❌ Don’t use: very small samples | $Z = \frac{\hat p - p_0}{\sqrt{p_0(1 - p_0)/n}}$ | $\hat p$: sample proportion<br>$p_0$: pop. proportion<br>$n$: sample size | “Is 65 % click-through (65/100 users) different from the industry rate of 60 %?” | Proportion / binary | one sample count of successes & $n$ | **H₀**: p = p₀<br>**H₁**: p ≠ p₀ (two-tailed), or p > p₀ (one-tailed), or p < p₀ (one-tailed) | p ≠ p₀ (two-tailed), p > p₀ (right-tailed), p < p₀ (left-tailed) |
-| Z-test for proportions (2-sample) | Parametric | ✅ Use: compare $\hat p_1$ vs $\hat p_2$ of 2 groups | $Z = \frac{\hat p_1 - \hat p_2}{\sqrt{p(1-p)(1/n_1 + 1/n_2)}}$, where $p=\frac{x_1+x_2}{n_1+n_2}$ | $\hat p_i$: sample props<br>$x_i$: successes<br>$n_i$: sizes<br>$p$: pooled prop | “Compare conversion: Version A (40/200 = 20 %) vs B (30/180≈16.7 %)” | Proportion / binary | two groups with counts of successes & $n$ | **H₀**: p₁ = p₂<br>**H₁**: p₁ ≠ p₂ (two-tailed), or p₁ > p₂ (one-tailed), or p₁ < p₂ (one-tailed) | p₁ ≠ p₂ (two-tailed), p₁ > p₂ (right-tailed), p₁ < p₂ (left-tailed) |
-| Pearson correlation | Parametric | ✅ Use: linear relationship<br>❌ Don’t use: non-linear or heavy outliers | $r = \frac{\sum_i (x_i-\bar x)(y_i-\bar y)}{\sqrt{\sum_i(x_i-\bar x)^2\,\sum_i(y_i-\bar y)^2}}$ | $x_i,y_i$: paired data points<br>$\bar x,\bar y$: sample means | “Correlation of height and weight measured in 50 individuals.” | Paired continuous | paired raw values for $x$ & $y$ | **H₀**: ρ = 0<br>**H₁**: ρ ≠ 0 (two-tailed), or ρ > 0 (one-tailed), or ρ < 0 (one-tailed) | ρ ≠ 0 (two-tailed), ρ > 0 (right-tailed), ρ < 0 (left-tailed) |
-| ANOVA (Analysis of Variance) | Parametric | ✅ Use: compare 3+ group means<br>❌ Don’t use: non-normal or unequal variances | $F = \frac{MS_{between}}{MS_{within}},\ MS_{between}=\frac{SS_{between}}{k-1},\ MS_{within}=\frac{SS_{within}}{N-k}$ | $SS_{between}$: sum of squares between groups<br>$SS_{within}$: sum of squares within groups<br>$k$: #groups<br>$N$: total obs | “Compare mean test scores for Classes A (n = 20), B (n = 22), C (n = 18).” | Continuous, grouped | raw values plus group labels (≥ 3 groups) | **H₀**: μ₁ = μ₂ = … = μₖ<br>**H₁**: At least one μᵢ ≠ μⱼ for some i ≠ j | At least one group mean differs from the others |
-| Chi-square (goodness-of-fit) | Non-Parametric | ✅ Use: observed vs expected counts<br>❌ Don’t use: expected < 5 | $\chi^2 = \sum_i \frac{(O_i - E_i)^2}{E_i}$ | $O_i$: observed count<br>$E_i$: expected count | “Is this die fair? Observed rolls {1:18,2:20,…,6:22} vs expected {20 each}” | Categorical | observed & expected frequency counts | **H₀**: Observed frequencies match expected frequencies<br>**H₁**: Observed frequencies do not match expected frequencies | Observed frequencies differ from expected frequencies |
-| Chi-square (independence) | Non-Parametric | ✅ Use: association between 2 categorical vars<br>❌ Don’t use: sparse tables | $\chi^2 = \sum_{i,j} \frac{(O_{ij} - E_{ij})^2}{E_{ij}}$ | $O_{ij}$: observed in cell (i,j)<br>$E_{ij}$: expected in cell (i,j) | “Survey: Gender (M/F) vs Preference (Yes/No), counts in a 2×2 table” | Categorical | contingency table of counts | **H₀**: The two variables are independent<br>**H₁**: The two variables are not independent | The two variables are not independent (associated) |
-| Mann-Whitney U test | Non-Parametric | ✅ Use: 2 independent groups, non-normal<br>❌ Don’t use: parametric conditions met | $U = n_1 n_2 + \frac{n_1(n_1+1)}{2} - R_1$ | $n_i$: sample sizes<br>$R_1$: sum of ranks for group 1 | “Compare median stress scores: Day shift (n = 30) vs Night shift (n = 28).” | Ordinal or continuous | two independent samples, ranked or raw values | **H₀**: Distributions of the two groups are equal<br>**H₁**: Distributions are not equal (two-tailed), or one is stochastically larger (one-tailed) | Distributions differ (two-tailed), or one distribution is stochastically larger (one-tailed) |
-| Kruskal-Wallis test | Non-Parametric | ✅ Use: 3+ groups, non-normal<br>❌ Don’t use: ANOVA conditions met | $H = \frac{12}{N(N+1)}\sum_i \frac{R_i^2}{n_i} - 3(N+1)$ | $R_i$: sum of ranks in group i<br>$n_i$: size of group i<br>$N$: total obs | “Compare median satisfaction scores across Regions North (n = 25), South (n = 27), East (n = 23).” | Ordinal, grouped | raw values plus group labels (≥ 3 groups) | **H₀**: Distributions of all groups are equal<br>**H₁**: At least one group distribution is different | At least one group distribution differs from the others |
-
-## Notes
-
-- The **p-value** is the probability of observing the test statistic (or a more extreme value) assuming the null hypothesis (H₀) is true.
-- If **p < α** (e.g., 0.05), we **reject H₀** and conclude that there is sufficient evidence to support the alternative hypothesis (H₁), as specified in the "Conclusion if p < α" column.
-- If **p ≥ α**, we **fail to reject H₀**, indicating that the data do not provide enough evidence to support H₁.
-- For tests with one-tailed and two-tailed options, the conclusion depends on the chosen alternative hypothesis.
+| Test Name                 | Type           | When to Use / Not Use                                                  | Formula                                                                                                                             | Variables                      | Example                                       | Data Type            | Required Data              | Hypotheses                                                            | Tail Options      |
+| ------------------------- | -------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | --------------------------------------------- | -------------------- | -------------------------- | --------------------------------------------------------------------- | ----------------- |
+| One-sample t-test         | Parametric     | ✅ mean vs known pop. mean<br>❌ non-normal small \$n\$                  | \$t = \dfrac{\bar x - \mu\_0}{\dfrac{s}{\sqrt{n}}}\$                                                                                | \$\bar x, \mu\_0, s, n\$       | 30 students: mean=75, s=10 vs 70              | Continuous           | sample values, \$\mu\_0\$  | \$H\_0: \bar x = \mu\_0\$<br>\$H\_a: \bar x \neq \mu\_0\$             | Two- or one-sided |
+| Two-sample t-test         | Parametric     | ✅ two independent means<br>❌ non-normal or unequal variances           | \$t = \dfrac{\bar x\_1 - \bar x\_2}{\sqrt{\dfrac{s\_1^2}{n\_1} + \dfrac{s\_2^2}{n\_2}}}\$                                           | \$\bar x\_i, s\_i, n\_i\$      | BP: A (n=25, mean=120) vs B (n=30, mean=125)  | Continuous           | two sample sets            | \$H\_0: \bar x\_1 = \bar x\_2\$<br>\$H\_a: \bar x\_1 \neq \bar x\_2\$ | Two- or one-sided |
+| Paired t-test             | Parametric     | ✅ before/after same group<br>❌ independent groups                      | \$t = \dfrac{\bar d}{\dfrac{s\_d}{\sqrt{n}}}\$                                                                                      | \$\bar d, s\_d, n\$            | 20 patients: mean change=−5 kg, SD=2          | Continuous, paired   | paired differences         | \$H\_0: \bar d = 0\$<br>\$H\_a: \bar d \neq 0\$                       | Two- or one-sided |
+| One-sample Z-test         | Parametric     | ✅ large \$n\$, known \$\sigma\$<br>❌ small \$n\$ or unknown \$\sigma\$ | \$Z = \dfrac{\bar x - \mu}{\dfrac{\sigma}{\sqrt{n}}}\$                                                                              | \$\bar x, \mu, \sigma, n\$     | Widget weight (n=100, mean=50.2, σ=0.5) vs 50 | Continuous           | sample values, \$\sigma\$  | \$H\_0: \bar x = \mu\$<br>\$H\_a: \bar x \neq \mu\$                   | Two- or one-sided |
+| Two-sample Z-test         | Parametric     | ✅ large \$n\$, known \$\sigma\_i\$<br>❌ unknown pop. SD                | \$Z = \dfrac{\bar x\_1 - \bar x\_2}{\sqrt{\dfrac{\sigma\_1^2}{n\_1} + \dfrac{\sigma\_2^2}{n\_2}}}\$                                 | \$\bar x\_i, \sigma\_i, n\_i\$ | Yield: A (150,200,σ=15) vs B (180,190,σ=20)   | Continuous           | two samples, \$\sigma\_i\$ | \$H\_0: \bar x\_1 = \bar x\_2\$<br>\$H\_a: \bar x\_1 \neq \bar x\_2\$ | Two- or one-sided |
+| Z-test prop. (1)          | Parametric     | ✅ proportion vs known \$p\_0\$<br>❌ very small \$n\$                   | \$Z = \dfrac{\hat p - p\_0}{\sqrt{\dfrac{p\_0(1-p\_0)}{n}}}\$                                                                       | \$\hat p, p\_0, n\$            | 65/100 click vs 60%                           | Proportion / binary  | count, \$n\$               | \$H\_0: p = p\_0\$<br>\$H\_a: p \neq p\_0\$                           | Two- or one-sided |
+| Z-test prop. (2)          | Parametric     | ✅ compare two proportions<br>❌ small \$n\$                             | \$Z = \dfrac{\hat p\_1 - \hat p\_2}{\sqrt{p(1-p)\bigl(\tfrac{1}{n\_1}+\tfrac{1}{n\_2}\bigr)}}\$, \$p=\tfrac{x\_1+x\_2}{n\_1+n\_2}\$ | \$\hat p\_i, x\_i, n\_i, p\$   | A:40/200=20% vs B:30/180≈16.7%                | Proportion / binary  | counts, \$n\_i\$           | \$H\_0: p\_1 = p\_2\$<br>\$H\_a: p\_1 \neq p\_2\$                     | Two- or one-sided |
+| Chi-square (gof)          | Non-Parametric | ✅ observed vs expected counts<br>❌ expected < 5                        | \$\chi^2 = \sum\_i \dfrac{(O\_i - E\_i)^2}{E\_i}\$                                                                                  | \$O\_i, E\_i\$                 | Die rolls vs expected                         | Categorical          | obs & exp counts           | \$H\_0:\$ observed = expected<br>\$H\_a:\$ observed \neq expected     | Two-sided only    |
+| Chi-square (independ.)    | Non-Parametric | ✅ association between categories<br>❌ sparse tables                    | \$\chi^2 = \sum\_{i,j} \dfrac{(O\_{ij} - E\_{ij})^2}{E\_{ij}}\$                                                                     | \$O\_{ij}, E\_{ij}\$           | Gender vs Yes/No                              | Categorical          | contingency table          | \$H\_0:\$ independent<br>\$H\_a:\$ associated                         | Two-sided only    |
+| Pearson correlation       | Parametric     | ✅ linear relationship<br>❌ non-linear or outliers                      | \$r = \dfrac{\sum\_i (x\_i - \bar x)(y\_i - \bar y)}{\sqrt{\sum\_i (x\_i - \bar x)^2 \sum\_i (y\_i - \bar y)^2}}\$                  | \$x\_i,y\_i,\bar x,\bar y\$    | Height vs weight in 50 people                 | Paired continuous    | paired x,y                 | \$H\_0: r = 0\$<br>\$H\_a: r \neq 0\$                                 | Two- or one-sided |
+| ANOVA                     | Parametric     | ✅ compare 3+ means<br>❌ non-normal or unequal variances                | \$F = \dfrac{MS\_{b}}{MS\_{w}}, MS\_{b}=\dfrac{SS\_{b}}{k-1}, MS\_{w}=\dfrac{SS\_{w}}{N-k}\$                                        | \$SS\_b,SS\_w,k,N\$            | Classes A/B/C scores                          | Continuous, grouped  | values + group labels      | \$H\_0:\$ all means equal<br>\$H\_a:\$ ≥1 mean differs                | Two-sided only    |
+| Mann-Whitney U test       | Non-Parametric | ✅ two independent groups, non-normal<br>❌ parametric conditions        | \$U = n\_1 n\_2 + \dfrac{n\_1 (n\_1 + 1)}{2} - R\_1\$                                                                               | \$n\_i, R\_1\$                 | Stress: Day vs Night                          | Ordinal / continuous | samples, ranks/raw         | \$H\_0:\$ distributions equal<br>\$H\_a:\$ distributions differ       | Two- or one-sided |
+| Wilcoxon signed-rank test | Non-Parametric | ✅ paired non-normal<br>❌ parametric conditions                         | \$W = \min\bigl(W^+,W^-\bigr), W^+ = \sum\_{d\_i>0} R\_i, W^- = \sum\_{d\_i<0} R\_i\$                                               | \$d\_i, R\_i, W^+, W^-\$       | Mood 1–10 before/after therapy                | Paired ordinal       | paired before/after values | \$H\_0:\$ median diff = 0<br>\$H\_a:\$ median diff \neq 0             | Two- or one-sided |
+| Kruskal-Wallis test       | Non-Parametric | ✅ 3+ groups non-normal<br>❌ ANOVA conditions                           | \$H = \dfrac{12}{N(N + 1)} \sum\_i \dfrac{R\_i^2}{n\_i} - 3 (N + 1)\$                                                               | \$R\_i, n\_i, N\$              | Satisfaction: North/South/East                | Ordinal, grouped     | values + group labels      | \$H\_0:\$ distributions equal<br>\$H\_a:\$ ≥1 distribution differs    | Two-sided only    |
