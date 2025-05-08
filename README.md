@@ -98,3 +98,11 @@ Each test includes when to use it, the formula, key variables, example, hypothes
 This repository (`DS-toolbox`) integrates the [Data Science Toolkit](https://github.com/pmaji/data-science-toolkit) as an external module.
 
 The `data-science-toolkit` is maintained by [pmaji](https://github.com/pmaji) and provides useful tools for data science workflows. For more details and documentation, visit the [Data Science Toolkit repository](https://github.com/pmaji/data-science-toolkit).
+
+### Working with Submodules
+
+This repository uses `data-science-toolkit` as a submodule. To initialize the submodule after cloning this repository, run:
+
+```bash
+git submodule update --init --recursive
+```
