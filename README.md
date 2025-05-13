@@ -93,16 +93,80 @@ Each test includes when to use it, the formula, key variables, example, hypothes
 | Wilcoxon signed-rank test | Non-Parametric | ✅ paired non-normal<br>❌ parametric conditions                         | $W = \min(W^+,W^-), W^+=\sum_{d_i>0}R_i, W^-=\sum_{d_i<0}R_i$                                                                       | $d_i,R_i,W^+,W^-$            | $n-1$                               | Mood 1–10 before/after therapy                | $H_0:$ median diff=0<br>$H_a:$ median diff $\neq$ 0                   | Two-/One-sided | Reject $H_0$ if $W < W_{crit}$ (two-tailed) or $W < W_{crit}$ (one-tailed) or p < $\alpha$          |
 | Kruskal-Wallis test       | Non-Parametric | ✅ 3+ groups non-normal<br>❌ ANOVA conditions                           | $H = \dfrac{12}{N(N+1)} \sum_i \dfrac{R_i^2}{n_i} - 3(N+1)$                                                                         | $R_i,n_i,N$                  | $k-1$                               | Satisfaction N/S/E                            | $H_0:$ distributions equal<br>$H_a:$ at least one differs             | Two-sided only | Reject $H_0$ if $H > \chi^2_{\alpha, k-1}$ or p < $\alpha$                                          |
 
-## Attribution
-
-This repository (`DS-toolbox`) integrates the [Data Science Toolkit](https://github.com/pmaji/data-science-toolkit) as an external module.
-
-The `data-science-toolkit` is maintained by [pmaji](https://github.com/pmaji) and provides useful tools for data science workflows. For more details and documentation, visit the [Data Science Toolkit repository](https://github.com/pmaji/data-science-toolkit).
-
-### Working with Submodules
-
-This repository uses `data-science-toolkit` as a submodule. To initialize the submodule after cloning this repository, run:
-
+## Repository Structure
 ```bash
-git submodule update --init --recursive
+Statistical-Toolbox/
+├── README.md
+├── notebooks/
+│   ├── 01_correlation_analysis.ipynb
+│   ├── 02_binomial_distribution.ipynb
+│   ├── 03_poisson_distribution.ipynb
+│   ├── 04_qq_plot.ipynb
+│   ├── 05_t_tests.ipynb
+│   ├── 06_z_tests_and_z_score.ipynb
+│   ├── 07_chi_square_tests.ipynb
+│   ├── 08_anova.ipynb
+│   ├── 09_mann_whitney_u_test.ipynb
+│   ├── 10_wilcoxon_signed_rank.ipynb
+│   └── 11_kruskal_wallis.ipynb
+└── data/  # (Optional folder for example datasets)
 ```
+- **README.md**: Navigation index, summary of topics, instructions.
+
+- **notebooks/**: One notebook per statistical method, with descriptive filenames.
+
+- **data/ (optional)**: Storage for any downloaded example datasets used in notebooks.
+
+## README.md (Index and Overview)
+
+The README.md provides a project overview and directs users to each notebook. It includes:
+
+- Introduction: Purpose of the toolbox and how to use it.
+
+- Table of Contents: Links to each notebook (with short descriptions).
+
+- Usage: Instructions on prerequisites (e.g., Python libraries) and how to run the notebooks.
+
+- License and Contributing: If open-sourced, license info and contribution guidelines.
+
+### Example Table of Contents (with brief summaries):
+
+- Correlation Analysis – Exploring Pearson’s correlation, scatter plots, and interpretation
+    [scribbr.com](https://www.scribbr.com/statistics/pearson-correlation-coefficient/#:~:text=The%20Pearson%20correlation%20coefficient%20,the%20relationship%20between%20two%20variables).
+
+- Binomial Distribution – Modeling number of successes in Bernoulli trials
+    [en.wikipedia.org](https://en.wikipedia.org/wiki/Binomial_distribution#:~:text=In%20probability%20theory%20%20and,1)
+    [geeksforgeeks.org](https://www.geeksforgeeks.org/python-binomial-distribution/#:~:text=Binomial%20distribution%20is%20a%20probability,each%20of%20these%20criteria).
+
+- Poisson Distribution – Modeling count of events over fixed intervals
+    [en.wikipedia.org](https://en.wikipedia.org/wiki/Poisson_distribution#:~:text=In%20probability%20theory%20%20and,stable%20distributions).
+
+- Q–Q Plot – Visual comparison of distribution shapes
+    [en.wikipedia.org](https://en.wikipedia.org/wiki/Q%E2%80%93Q_plot#:~:text=In%20statistics%2C%20a%20Q%E2%80%93Q%20plot,index%20of%20the%20quantile%20interval).
+
+- t-Tests (One-sample, Two-sample, Paired) – Testing differences in means under normality assumptions
+    [jmp.com](https://www.jmp.com/en_us/statistics-knowledge-portal/t-test/one-sample-t-test.html#:~:text=The%20one,different%20from%20a%20specific%20value)
+    [statistics.laerd.com](https://statistics.laerd.com/statistical-guides/independent-t-test-statistical-guide.php#:~:text=The%20independent%20t,means%20in%20two%20unrelated%20groups)
+    [jmp.com](https://statistics.laerd.com/statistical-guides/independent-t-test-statistical-guide.php#:~:text=The%20independent%20t,means%20in%20two%20unrelated%20groups).
+
+- Z-Tests and Z-Score – Hypothesis testing with known variance (large n) and standard score formula
+    [investopedia.com](https://statistics.laerd.com/statistical-guides/independent-t-test-statistical-guide.php#:~:text=The%20independent%20t,means%20in%20two%20unrelated%20groups)
+    [investopedia.com](https://www.investopedia.com/terms/z/z-test.asp#:~:text=When%20Should%20You%20Use%20a,Test).
+
+- Chi-square Tests – Goodness-of-fit and independence tests for categorical data
+    [scribbr.com](https://www.scribbr.com/statistics/chi-square-goodness-of-fit/#:~:text=A%20chi,variable%20differs%20from%20your%20expectations)
+    [scribbr.com](https://www.scribbr.com/statistics/chi-square-goodness-of-fit/#:~:text=%2A%20Use%20the%20chi,a%20hypothesis%20about%20their%20relationship).
+
+- ANOVA (Analysis of Variance) – Comparing means across >2 groups
+    [investopedia.com](https://www.investopedia.com/terms/a/anova.asp#:~:text=Analysis%20of%20variance%20,they%20reflect%20genuine%2C%20meaningful%20differences)
+    [scribbr.com](https://www.scribbr.com/statistics/one-way-anova/#:~:text=When%20to%20use%20a%20one,ANOVA).
+
+- Mann–Whitney U Test – Nonparametric test for two independent samples
+    [en.wikipedia.org](https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test#:~:text=The%20Mann%E2%80%93Whitney%20Image%3A%20,populations%20have%20the%20same%20distribution).
+
+- Wilcoxon Signed-Rank Test – Nonparametric paired-sample test (alternative to paired t-test
+    [investopedia.com](https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test#:~:text=The%20Mann%E2%80%93Whitney%20Image%3A%20,populations%20have%20the%20same%20distribution)
+).
+
+- Kruskal–Wallis Test – Nonparametric equivalent of one-way ANOVA
+    library.virginia.edu.
