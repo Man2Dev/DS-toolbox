@@ -94,28 +94,33 @@ Each test includes when to use it, the formula, key variables, example, hypothes
 | Kruskal-Wallis test       | Non-Parametric | ✅ 3+ groups non-normal<br>❌ ANOVA conditions                           | $H = \dfrac{12}{N(N+1)} \sum_i \dfrac{R_i^2}{n_i} - 3(N+1)$                                                                         | $R_i,n_i,N$                  | $k-1$                               | Satisfaction N/S/E                            | $H_0:$ distributions equal<br>$H_a:$ at least one differs             | Two-sided only | Reject $H_0$ if $H > \chi^2_{\alpha, k-1}$ or p < $\alpha$                                          |
 
 ## Repository Structure
-```bash
-Statistical-Toolbox/
-├── README.md
-├── notebooks/
-│   ├── 01_correlation_analysis.ipynb
-│   ├── 02_binomial_distribution.ipynb
-│   ├── 03_poisson_distribution.ipynb
-│   ├── 04_qq_plot.ipynb
-│   ├── 05_t_tests.ipynb
-│   ├── 06_z_tests_and_z_score.ipynb
-│   ├── 07_chi_square_tests.ipynb
-│   ├── 08_anova.ipynb
-│   ├── 09_mann_whitney_u_test.ipynb
-│   ├── 10_wilcoxon_signed_rank.ipynb
-│   └── 11_kruskal_wallis.ipynb
-└── data/  # (Optional folder for example datasets)
-```
+| **Path**                                               | **Type**        | **Description**                                                                                                  |
+|--------------------------------------------------------|-----------------|------------------------------------------------------------------------------------------------------------------|
+| `/license.txt`                                         | File            | Project license (GPL-3.0).                                                                                       |
+| `/data/`                                               | Directory       | (Optional) Directory for storing sample or external datasets.                                                   |
+| `/notebooks/`                                          | Directory       | Core statistical method notebooks. Each file contains examples, code, and visualizations.                        |
+| ├── `01_correlation_analysis.ipynb`                    | Notebook        | Pearson, Spearman, and Kendall correlation methods.                                                             |
+| ├── `02_binomial_distribution.ipynb`                   | Notebook        | Binomial distribution: PMF/CDF, plots, and real-world scenarios.                                                |
+| ├── `03_poisson_distribution.ipynb`                    | Notebook        | Poisson distribution: modeling count data and visualizations.                                                   |
+| ├── `04_qq_plot.ipynb`                                 | Notebook        | Q-Q plots comparing distributions for normality checks.                                                         |
+| ├── `05_t_tests.ipynb`                                 | Notebook        | One-sample, two-sample (independent), and paired t-tests.                                                       |
+| ├── `06_z_tests_and_z_score.ipynb`                     | Notebook        | Z-score standardization and z-tests for known population parameters.                                            |
+| ├── `07_chi_square_tests.ipynb`                        | Notebook        | Chi-square goodness-of-fit and independence tests for categorical variables.                                    |
+| ├── `08_anova.ipynb`                                   | Notebook        | One-way ANOVA for comparing group means across multiple categories.                                             |
+| ├── `09_mann_whitney_u_test.ipynb`                     | Notebook        | Non-parametric test for comparing two independent samples.                                                      |
+| ├── `10_wilcoxon_signed_rank.ipynb`                    | Notebook        | Non-parametric test for comparing two related samples.                                                          |
+| ├── `11_kruskal_wallis.ipynb`                          | Notebook        | Non-parametric test for comparing more than two independent groups.                                             |
+| └── `README.md`                                        | File            | Overview and usage instructions for the `/notebooks` directory.                                                 |
+| `/demo/`                                               | Directory       | Interactive demos using `ipywidgets` or `Plotly`.                                                               |
+| ├── `Demo.ipynb`                                       | Notebook        | Interactive Pearson correlation picker with live scatterplots.                                                  |
+| └── `README.md`                                        | File            | Instructions for running and enabling interactive visualizations.                                               |
+| `/external/`                                           | Directory       | External submodules or dependencies.                                                                            |
+| ├── `data-science-toolkit/`                            | Git Submodule   | [Data Science Toolkit](https://github.com/pmaji/data-science-toolkit) by pmaji. Used for helper utilities.     |
+| └── `README.md`                                        | File            | Attribution and setup instructions for the external toolkit.                                                    |
+
 - **README.md**: Navigation index, summary of topics, instructions.
 
 - **notebooks/**: One notebook per statistical method, with descriptive filenames.
-
-- **data/ (optional)**: Storage for any downloaded example datasets used in notebooks.
 
 ## README.md (Index and Overview)
 
